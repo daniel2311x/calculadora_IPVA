@@ -10,6 +10,7 @@ def ipva():
         print("6 - Automoveis acima de 160 HP")
         print("7 - Onibus e Caminhoes")
         print("8 - Veiculos com Kit GNV")
+        print("9 - Calculo de IPVA proporcional")
         print("0 - Sair")
 
         opcao = input("\nEscolha a categoria do seu veiculo (1, 2, 3, 4, 5, 6, 7, 8, 0):")
@@ -50,6 +51,16 @@ def ipva():
                 ipva_total = valor_venal * aliquota
 
                 print(f"O IPVA a pagar é de R${ipva_total:.2f}")
+
+                if opcao == '9':
+                    meses = int(input("Informe quantidade de meses devidos: "))
+
+                    if meses > 12 and meses < 1:
+                        print("Quantidade invalida! informe um numero entre 1 e 12")
+
+                    else:
+                        ipva_proporcional = ipva_total * (meses / 12)
+                        print(f"O valor do IPVA proporcional é de R${ipva_proporcional}")   
 
             except ValueError:
                 print("Por favor, informe numeros validos.")      
